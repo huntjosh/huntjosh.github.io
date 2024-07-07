@@ -145,6 +145,40 @@
 <li>The problem being solved will result in a subpar experience with WebViews, perhaps deep webgl work or similar</li>
 <li>You don’t want to deal with inevitably ongoing teething issues with supporting cross platform (web, iOS and Android)</li>
 </ul>
+<h2 id="Ideas-on-incorporating-Capacitor-or-similar"><a href="#Ideas-on-incorporating-Capacitor-or-similar" class="headerlink" title="Ideas on incorporating Capacitor or similar"></a>Ideas on incorporating Capacitor or similar</h2><p>Modern Web APIs have significantly improved, enabling developers to meet most requirements discussed in the case study without relying on additional frameworks. This is a crucial consideration, as Web APIs typically offer greater reliability and stability compared to niche technologies like Capacitor, which can present adoption challenges as previously discussed.</p>
+<p>In my view, the key strengths of Capacitor lie in its ability to abstract the deployment of WebViews to iOS and Android platforms, as well as its integration with deployment tools like AppFlow. However, it’s important to weigh these benefits against the potential drawbacks of adopting a third-party solution.<br>Given these factors, a recommended strategy would be to prioritize Web APIs over Capacitor plugins where suitable alternatives exist. This approach offers several advantages:</p>
+<ul>
+<li>Reduced coupling with third-party technologies</li>
+<li>Improved long-term maintainability</li>
+<li>Easier migration to alternative solutions if needed</li>
+<li>Better alignment with web standards</li>
+</ul>
+<p>Here are some examples of potential Web API alternatives to Capacitor plugins:</p>
+<table>
+<thead>
+<tr>
+<th>Capacitor Plugin  -&gt;</th>
+<th>Web API Alternative</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Camera</td>
+<td>MediaDevices.getUserMedia()</td>
+</tr>
+<tr>
+<td>Geolocation</td>
+<td>Geolocation API</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Web Storage API (localStorage&#x2F;sessionStorage) or IndexedDB</td>
+</tr>
+<tr>
+<td>Filesystem</td>
+<td>File System Access API</td>
+</tr>
+</tbody></table>
+<p>By leveraging these Web APIs, developers can create robust, cross-platform applications while minimizing dependence on external frameworks. This strategy allows for greater flexibility and future-proofing of the application architecture.<br>However, it’s important to note that Capacitor still provides value in scenarios where native functionality is required or when targeting specific mobile platforms. In such cases, a hybrid approach - using Web APIs where possible and Capacitor plugins for platform-specific features - could be a effective solution.</p>
 <h2 id="Closing-thoughts"><a href="#Closing-thoughts" class="headerlink" title="Closing thoughts"></a>Closing thoughts</h2><p>When appropriately chosen, Capacitor can be a game changing win for speed to market, ongoing development speed and reduced maintainence overhead. I’ve been pleasently surprised with just how much Capacitor can handle. My initial expectations was that it was going to be a far more inferior experience to a native technology, but that turned out to be not the case, even with the reasonably involved requirements dealt with.</p>
 <p>I would always recommend taking an iterative proof-of-concept approach when testing the feasibility of Capacitor or similar for your product, as due to the nature of cross platform nuances, there is every chance you run into an issue that could possibly be deal breaking, or require an alternative solution to achieve what you need, and very important that this is identified early on before being completely committed. Fortunately I have yet to run into any deal breakers like this, and I’ve gone on to implement a second app as well with the same setup.</p>
 
